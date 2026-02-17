@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .blog-hero {
+        background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+      }
+
+      .blog-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .blog-categories {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        padding: 0.7rem 1.5rem;
+        background: white;
+        color: #374151;
+        border: 2px solid #e5e7eb;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .category-tag:hover,
+      .category-tag.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+        transform: translateY(-3px);
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+      }
+
+      .blog-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 240px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-card:nth-child(2) .blog-image {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .blog-card:nth-child(3) .blog-image {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .blog-card:nth-child(4) .blog-image {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .blog-card:nth-child(5) .blog-image {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .blog-card:nth-child(6) .blog-image {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .blog-image::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease;
+      }
+
+      .blog-card:hover .blog-image::after {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .blog-content {
+        padding: 1.8rem;
+      }
+
+      .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #6b7280;
+      }
+
+      .blog-date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-category {
+        background: #eff6ff;
+        color: #2563eb;
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+      }
+
+      .blog-content h3 {
+        font-size: 1.5rem;
+        color: #1f2937;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .blog-excerpt {
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #2563eb;
+        font-weight: 600;
+        text-decoration: none;
+        transition: gap 0.3s ease;
+      }
+
+      .read-more:hover {
+        gap: 1rem;
+      }
+
+      .featured-post {
+        background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 20px;
+        margin: 4rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .featured-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .featured-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        color: #d1d5db;
+      }
+
+      .featured-image {
+        width: 100%;
+        height: 350px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8rem;
+      }
+
+      .newsletter {
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .newsletter h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .newsletter p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        min-width: 250px;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .newsletter-form button {
+        padding: 1rem 2.5rem;
+        background: #f59e0b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-form button:hover {
+        background: #d97706;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .featured-post {
+          grid-template-columns: 1fr;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .newsletter-form input {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Nuestro Blog</h1>
+        <p>Insights, tendencias y mejores prácticas en tecnología web</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="blog-categories">
+          <a href="#" class="category-tag active">Todos</a>
+          <a href="#" class="category-tag">Desarrollo Web</a>
+          <a href="#" class="category-tag">Diseño UX/UI</a>
+          <a href="#" class="category-tag">Marketing Digital</a>
+          <a href="#" class="category-tag">Tendencias</a>
+        </div>
+
+        <div class="featured-post">
+          <div class="featured-content">
+            <span
+              style="
+                background: #f59e0b;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                display: inline-block;
+                margin-bottom: 1rem;
+                font-weight: 600;
+              "
+              >✨ Destacado</span
+            >
+            <h2>El Futuro del Desarrollo Web en 2026</h2>
+            <p>
+              Exploramos las tecnologías emergentes que están revolucionando la
+              industria del desarrollo web. Desde IA hasta Web3, descubre lo que
+              viene en los próximos años y cómo prepararte para el futuro.
+            </p>
+            <a href="#" class="btn">Leer Artículo Completo</a>
+          </div>
+          <div class="featured-image">🚀</div>
+        </div>
+
+        <h2 class="section-title">Últimos Artículos</h2>
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-image">💻</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">📅 10 Feb 2026</span>
+                <span class="blog-category">Desarrollo</span>
+              </div>
+              <h3>10 Mejores Prácticas para Desarrollo Web Moderno</h3>
+              <p class="blog-excerpt">
+                Descubre las técnicas y metodologías que todo desarrollador debe
+                conocer para crear aplicaciones web eficientes y escalables.
+              </p>
+              <a href="#" class="read-more">Leer más →</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">🎨</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">📅 8 Feb 2026</span>
+                <span class="blog-category">Diseño</span>
+              </div>
+              <h3>Principios de UX/UI que Todo Diseñador Debe Conocer</h3>
+              <p class="blog-excerpt">
+                Una guía completa sobre los fundamentos del diseño de
+                experiencia de usuario y cómo aplicarlos en tus proyectos.
+              </p>
+              <a href="#" class="read-more">Leer más →</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">📈</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">📅 5 Feb 2026</span>
+                <span class="blog-category">Marketing</span>
+              </div>
+              <h3>SEO en 2026: Estrategias que Funcionan</h3>
+              <p class="blog-excerpt">
+                Las últimas técnicas de optimización para motores de búsqueda y
+                cómo mejorar tu ranking en Google.
+              </p>
+              <a href="#" class="read-more">Leer más →</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">🔒</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">📅 3 Feb 2026</span>
+                <span class="blog-category">Seguridad</span>
+              </div>
+              <h3>Ciberseguridad para Sitios Web: Guía Completa</h3>
+              <p class="blog-excerpt">
+                Aprende a proteger tu sitio web de amenazas comunes y mantén tus
+                datos seguros con estas mejores prácticas.
+              </p>
+              <a href="#" class="read-more">Leer más →</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">⚡</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">📅 1 Feb 2026</span>
+                <span class="blog-category">Performance</span>
+              </div>
+              <h3>Optimización de Rendimiento Web: Acelera tu Sitio</h3>
+              <p class="blog-excerpt">
+                Técnicas avanzadas para mejorar la velocidad de carga y ofrecer
+                una experiencia de usuario excepcional.
+              </p>
+              <a href="#" class="read-more">Leer más →</a>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-image">📱</div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date">📅 28 Ene 2026</span>
+                <span class="blog-category">Mobile</span>
+              </div>
+              <h3>Progressive Web Apps: El Futuro es Mobile-First</h3>
+              <p class="blog-excerpt">
+                Cómo las PWAs están cambiando el panorama del desarrollo móvil y
+                por qué deberías considerarlas.
+              </p>
+              <a href="#" class="read-more">Leer más →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="#" class="btn">Ver Más Artículos</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="newsletter">
+          <h2>📧 Suscríbete a Nuestro Newsletter</h2>
+          <p>
+            Recibe las últimas noticias, artículos y recursos directamente en tu
+            bandeja de entrada
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Tu correo electrónico" required />
+            <button type="submit">Suscribirse</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="services.html">Desarrollo Web</a></li>
+            <li><a href="services.html">Consultoría Digital</a></li>
+            <li><a href="services.html">SEO & Marketing</a></li>
+            <li><a href="services.html">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

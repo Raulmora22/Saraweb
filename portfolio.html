@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .portfolio-hero {
+        background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+      }
+
+      .portfolio-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.7rem 1.5rem;
+        background: white;
+        color: #374151;
+        border: 2px solid #e5e7eb;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+        transform: translateY(-3px);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+      }
+
+      .portfolio-item {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .portfolio-image {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .portfolio-item:nth-child(2) .portfolio-image {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .portfolio-item:nth-child(3) .portfolio-image {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .portfolio-item:nth-child(4) .portfolio-image {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .portfolio-item:nth-child(5) .portfolio-image {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .portfolio-item:nth-child(6) .portfolio-image {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .portfolio-image::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-image::before {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .portfolio-info {
+        padding: 1.8rem;
+      }
+
+      .portfolio-category {
+        display: inline-block;
+        background: #eff6ff;
+        color: #2563eb;
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-info h3 {
+        font-size: 1.5rem;
+        color: #1f2937;
+        margin-bottom: 0.8rem;
+      }
+
+      .portfolio-info p {
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .portfolio-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background: #f3f4f6;
+        color: #374151;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+      }
+
+      .stats-banner {
+        background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+        color: white;
+        padding: 4rem 2rem;
+        margin: 4rem 0;
+        border-radius: 20px;
+        text-align: center;
+      }
+
+      .stats-banner-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 2rem auto 0;
+      }
+
+      .banner-number {
+        font-size: 3.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="portfolio-hero">
+      <div class="container">
+        <h1>Nuestro Portafolio</h1>
+        <p>Proyectos que transforman negocios y superan expectativas</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active">Todos</button>
+          <button class="filter-btn">E-commerce</button>
+          <button class="filter-btn">Corporativo</button>
+          <button class="filter-btn">Apps Móviles</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <div class="portfolio-image">🛒</div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">E-commerce</span>
+              <h3>TechStore Online</h3>
+              <p>
+                Plataforma de e-commerce completa con más de 10,000 productos y
+                sistema de pago integrado.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-image">🏢</div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">Corporativo</span>
+              <h3>Global Solutions Web</h3>
+              <p>
+                Sitio web corporativo multiidioma para empresa internacional de
+                consultoría.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">WordPress</span>
+                <span class="tag">PHP</span>
+                <span class="tag">SEO</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-image">📱</div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">App Móvil</span>
+              <h3>FitTracker Pro</h3>
+              <p>
+                Aplicación móvil de fitness con seguimiento de entrenamientos y
+                planes personalizados.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">React Native</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">API</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-image">🎓</div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">Educación</span>
+              <h3>LearnHub Platform</h3>
+              <p>
+                Plataforma e-learning con cursos online, certificaciones y
+                sistema de evaluación.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Django</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-image">🍕</div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">E-commerce</span>
+              <h3>Pizzería Napoli</h3>
+              <p>
+                Sistema de pedidos online con seguimiento en tiempo real y panel
+                de administración.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Angular</span>
+                <span class="tag">Express</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-image">💼</div>
+            <div class="portfolio-info">
+              <span class="portfolio-category">Corporativo</span>
+              <h3>FinanceX Dashboard</h3>
+              <p>
+                Dashboard financiero con análisis en tiempo real y reportes
+                personalizados.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Charts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats-banner">
+      <div class="container">
+        <h2>Resultados que Hablan por Sí Mismos</h2>
+        <div class="stats-banner-grid">
+          <div class="banner-stat">
+            <span class="banner-number">500+</span>
+            <span>Proyectos Exitosos</span>
+          </div>
+          <div class="banner-stat">
+            <span class="banner-number">250+</span>
+            <span>Clientes Felices</span>
+          </div>
+          <div class="banner-stat">
+            <span class="banner-number">98%</span>
+            <span>Satisfacción del Cliente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container text-center">
+        <h2 class="section-title">¿Tienes un Proyecto en Mente?</h2>
+        <a href="contact.html" class="btn">Hablemos de tu Proyecto</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="services.html">Desarrollo Web</a></li>
+            <li><a href="services.html">Consultoría Digital</a></li>
+            <li><a href="services.html">SEO & Marketing</a></li>
+            <li><a href="services.html">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

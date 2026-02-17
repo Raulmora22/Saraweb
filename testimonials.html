@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonios - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .testimonials-hero {
+        background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+      }
+
+      .testimonials-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+      }
+
+      .testimonial-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        border-top: 5px solid #2563eb;
+      }
+
+      .testimonial-card:nth-child(2) {
+        border-top-color: #ec4899;
+      }
+      .testimonial-card:nth-child(3) {
+        border-top-color: #10b981;
+      }
+      .testimonial-card:nth-child(4) {
+        border-top-color: #f59e0b;
+      }
+      .testimonial-card:nth-child(5) {
+        border-top-color: #8b5cf6;
+      }
+      .testimonial-card:nth-child(6) {
+        border-top-color: #06b6d4;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .quote-icon {
+        font-size: 3rem;
+        color: #2563eb;
+        opacity: 0.2;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      .testimonial-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #374151;
+        margin-bottom: 2rem;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .author-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+
+      .testimonial-card:nth-child(2) .author-avatar {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .testimonial-card:nth-child(3) .author-avatar {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .testimonial-card:nth-child(4) .author-avatar {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .testimonial-card:nth-child(5) .author-avatar {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .testimonial-card:nth-child(6) .author-avatar {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .author-info h4 {
+        color: #1f2937;
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .author-role {
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+
+      .author-company {
+        color: #2563eb;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .stars {
+        color: #f59e0b;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .video-testimonials {
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        padding: 4rem 0;
+        margin: 4rem 0;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .video-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .video-card:hover {
+        transform: scale(1.05);
+      }
+
+      .video-thumbnail {
+        width: 100%;
+        height: 220px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .video-card:nth-child(2) .video-thumbnail {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .video-card:nth-child(3) .video-thumbnail {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .play-button {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+
+      .video-info {
+        padding: 1.5rem;
+      }
+
+      .video-info h4 {
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+      }
+
+      .stats-section {
+        text-align: center;
+        padding: 4rem 0;
+        background: #1f2937;
+        color: white;
+        margin: 4rem 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 3rem auto 0;
+      }
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: #f59e0b;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="testimonials-hero">
+      <div class="container">
+        <h1>Lo Que Dicen Nuestros Clientes</h1>
+        <p>Historias reales de éxito y transformación digital</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Testimonios de Clientes</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "P&RConsulting transformó completamente nuestra presencia online.
+              Su equipo profesional entregó un sitio web excepcional que superó
+              todas nuestras expectativas. Las ventas han aumentado un 150%
+              desde el lanzamiento."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Miguel Hernández</h4>
+                <p class="author-role">CEO</p>
+                <p class="author-company">TechStore Solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "La experiencia con P&R Consulting fue increíble desde el primer
+              día. Su enfoque estratégico y atención al detalle resultaron en
+              una plataforma e-commerce que nuestros clientes adoran. ¡Altamente
+              recomendados!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Isabel Moreno</h4>
+                <p class="author-role">Directora de Marketing</p>
+                <p class="author-company">Fashion Boutique</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "Necesitábamos una solución compleja y P&R Consulting la entregó a
+              tiempo y dentro del presupuesto. Su expertise técnico y capacidad
+              de resolver problemas es impresionante. Son verdaderos partners
+              estratégicos."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Francisco Ruiz</h4>
+                <p class="author-role">CTO</p>
+                <p class="author-company">InnovateTech</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "El diseño que crearon para nuestra marca es simplemente
+              espectacular. Capturaron perfectamente nuestra visión y la
+              tradujeron en una experiencia digital memorable. Nuestros clientes
+              no paran de elogiar el sitio."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Carmen Silva</h4>
+                <p class="author-role">Fundadora</p>
+                <p class="author-company">Creative Studio</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "La consultoría de P&R Consulting fue fundamental para nuestra
+              transformación digital. Nos ayudaron a elegir las tecnologías
+              correctas y establecer una estrategia sólida. Los resultados
+              hablan por sí mismos."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Alberto Ramírez</h4>
+                <p class="author-role">Director de TI</p>
+                <p class="author-company">Global Enterprises</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "Trabajar con P&RConsulting ha sido una de las mejores decisiones
+              para nuestro negocio. Su servicio de mantenimiento nos da
+              tranquilidad total y su soporte es excepcional. ¡Un equipo de 10!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Lucía Jiménez</h4>
+                <p class="author-role">Gerente General</p>
+                <p class="author-company">StartUp Ventures</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-testimonials">
+      <div class="container">
+        <h2 class="section-title">Video Testimonios</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-thumbnail">
+              <div class="play-button">▶️</div>
+            </div>
+            <div class="video-info">
+              <h4>Caso de Éxito: E-commerce TechStore</h4>
+              <p>
+                Miguel Hernández comparte su experiencia de cómo P&R Consulting
+                aumentó sus ventas un 150%.
+              </p>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumbnail">
+              <div class="play-button">▶️</div>
+            </div>
+            <div class="video-info">
+              <h4>Transformación Digital en InnovateTech</h4>
+              <p>
+                Francisco Ruiz explica cómo modernizaron su infraestructura
+                tecnológica.
+              </p>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumbnail">
+              <div class="play-button">▶️</div>
+            </div>
+            <div class="video-info">
+              <h4>Rediseño de Marca: Creative Studio</h4>
+              <p>
+                Carmen Silva detalla el proceso de diseño que elevó su marca.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem">
+          Satisfacción del Cliente
+        </h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem">
+          Números que demuestran nuestro compromiso con la excelencia
+        </p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span>Satisfacción</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">250+</span>
+            <span>Clientes Felices</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span>Proyectos Exitosos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4.9/5</span>
+            <span>Calificación Promedio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container text-center">
+        <h2 class="section-title">
+          ¿Quieres Ser Nuestro Próximo Caso de Éxito?
+        </h2>
+        <a href="contact.html" class="btn">Comienza Tu Proyecto Hoy</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="services.html">Desarrollo Web</a></li>
+            <li><a href="services.html">Consultoría Digital</a></li>
+            <li><a href="services.html">SEO & Marketing</a></li>
+            <li><a href="services.html">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

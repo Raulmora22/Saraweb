@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P&RConsulting - Soluciones Web Profesionales</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .slider-container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        margin-top: 70px;
+      }
+
+      .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-size: cover;
+        background-position: center;
+        animation: slideChange 25s infinite;
+      }
+
+      .slide:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .slide:nth-child(2) {
+        animation-delay: -5s;
+      }
+
+      .slide:nth-child(3) {
+        animation-delay: -10s;
+      }
+
+      .slide:nth-child(4) {
+        animation-delay: -15s;
+      }
+
+      .slide:nth-child(5) {
+        animation-delay: -20s;
+      }
+
+      @keyframes slideChange {
+        0% {
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        20% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        color: white;
+        padding: 8rem 0 6rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 4rem 0;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #2563eb, #f59e0b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        color: #1f2937;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .stats {
+        background: #f3f4f6;
+        padding: 4rem 0;
+        text-align: center;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #2563eb;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        color: #374151;
+        margin-top: 0.5rem;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .slider-container {
+          height: 350px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Transformamos Ideas en Soluciones Digitales</h1>
+        <p>
+          Consultoría web profesional para llevar tu negocio al siguiente nivel
+        </p>
+        <a href="contact.html" class="btn">Contáctanos Hoy</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Tecnología Avanzada</h3>
+            <p>
+              Utilizamos las últimas tecnologías y mejores prácticas para
+              construir soluciones web robustas y escalables.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Soluciones Personalizadas</h3>
+            <p>
+              Cada proyecto es único. Desarrollamos soluciones a medida que se
+              adaptan perfectamente a tu negocio.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Resultados Rápidos</h3>
+            <p>
+              Metodologías ágiles que garantizan entregas rápidas sin
+              comprometer la calidad del producto final.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        <h2 class="section-title">Nuestros Números Hablan</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Proyectos Completados</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">250+</span>
+            <span class="stat-label">Clientes Satisfechos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">15</span>
+            <span class="stat-label">Años de Experiencia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Tasa de Satisfacción</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>¿Listo para Comenzar tu Proyecto?</h2>
+        <p>
+          Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus
+          objetivos
+        </p>
+        <a href="contact.html" class="btn">Solicitar Consulta Gratuita</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="services.html">Desarrollo Web</a></li>
+            <li><a href="services.html">Consultoría Digital</a></li>
+            <li><a href="services.html">SEO & Marketing</a></li>
+            <li><a href="services.html">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide, index) => {
+        slide.style.backgroundImage = `url('images/${index + 1}.png')`;
+      });
+    </script>
+  </body>
+</html>

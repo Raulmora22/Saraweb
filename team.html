@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestro Equipo - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .team-hero {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+      }
+
+      .team-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .team-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+
+      .team-intro p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #6b7280;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+      }
+
+      .team-member {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        text-align: center;
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .member-photo {
+        width: 100%;
+        height: 280px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-member:nth-child(2) .member-photo {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .team-member:nth-child(3) .member-photo {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .team-member:nth-child(4) .member-photo {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      .team-member:nth-child(5) .member-photo {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .team-member:nth-child(6) .member-photo {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .team-member:nth-child(7) .member-photo {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      }
+
+      .team-member:nth-child(8) .member-photo {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      }
+
+      .member-photo::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.2) 0%,
+          transparent 70%
+        );
+      }
+
+      .member-info {
+        padding: 1.8rem;
+      }
+
+      .member-name {
+        font-size: 1.5rem;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      .member-role {
+        color: #2563eb;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .member-bio {
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .departments {
+        background: #f9fafb;
+        padding: 4rem 0;
+        margin: 4rem 0;
+      }
+
+      .departments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .department-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .department-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .department-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .department-card h3 {
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+      }
+
+      .department-count {
+        font-size: 2rem;
+        color: #2563eb;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="team-hero">
+      <div class="container">
+        <h1>Conoce a Nuestro Equipo</h1>
+        <p>Profesionales apasionados comprometidos con tu éxito</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="team-intro">
+          <h2 class="section-title">Talento que Marca la Diferencia</h2>
+          <p>
+            Nuestro equipo está formado por expertos en diversas áreas
+            tecnológicas, unidos por la pasión de crear soluciones digitales
+            excepcionales. Cada miembro aporta conocimientos únicos y
+            experiencia valiosa a cada proyecto.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-photo">👨🏼‍🦳💻</div>
+            <div class="member-info">
+              <h3 class="member-name">Carlos Martínez</h3>
+              <span class="member-role">CEO & Fundador</span>
+              <p class="member-bio">
+                15 años liderando proyectos de transformación digital para
+                empresas Fortune 500.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">👩🏼‍🦰🖥️</div>
+            <div class="member-info">
+              <h3 class="member-name">Ana López</h3>
+              <span class="member-role">CTO</span>
+              <p class="member-bio">
+                Experta en arquitectura de software y tecnologías emergentes con
+                12 años de experiencia.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">👨🏼‍🦰🎨</div>
+            <div class="member-info">
+              <h3 class="member-name">David García</h3>
+              <span class="member-role">Director de Diseño</span>
+              <p class="member-bio">
+                Diseñador UX/UI premiado con un enfoque en crear experiencias
+                memorables.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">👩🏼‍🦳📖</div>
+            <div class="member-info">
+              <h3 class="member-name">María Fernández</h3>
+              <span class="member-role">Gerente de Proyectos</span>
+              <p class="member-bio">
+                Especialista en metodologías ágiles con un historial de entrega
+                exitosa de proyectos.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">🧑🏼🔧</div>
+            <div class="member-info">
+              <h3 class="member-name">Javier Sánchez</h3>
+              <span class="member-role">Full Stack Developer</span>
+              <p class="member-bio">
+                Desarrollador senior con expertise en React, Node.js y
+                arquitecturas de microservicios.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">👩🏼‍🚀</div>
+            <div class="member-info">
+              <h3 class="member-name">Laura Rodríguez</h3>
+              <span class="member-role">Marketing Digital</span>
+              <p class="member-bio">
+                Estratega de marketing digital con enfoque en SEO, SEM y
+                análisis de datos.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">👨🏼‍🏫</div>
+            <div class="member-info">
+              <h3 class="member-name">Roberto Díaz</h3>
+              <span class="member-role">Consultor Senior</span>
+              <p class="member-bio">
+                20 años asesorando empresas en su transformación digital y
+                estrategias tecnológicas.
+              </p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">👩🏼‍🔬</div>
+            <div class="member-info">
+              <h3 class="member-name">Elena Torres</h3>
+              <span class="member-role">QA & Testing Lead</span>
+              <p class="member-bio">
+                Especialista en aseguramiento de calidad con certificaciones
+                internacionales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="departments">
+      <div class="container">
+        <h2 class="section-title">Nuestros Departamentos</h2>
+        <div class="departments-grid">
+          <div class="department-card">
+            <div class="department-icon">💻</div>
+            <h3>Desarrollo</h3>
+            <p class="department-count">25+</p>
+            <p>Desarrolladores</p>
+          </div>
+          <div class="department-card">
+            <div class="department-icon">🎨</div>
+            <h3>Diseño</h3>
+            <p class="department-count">12+</p>
+            <p>Diseñadores</p>
+          </div>
+          <div class="department-card">
+            <div class="department-icon">📊</div>
+            <h3>Marketing</h3>
+            <p class="department-count">8+</p>
+            <p>Especialistas</p>
+          </div>
+          <div class="department-card">
+            <div class="department-icon">🤝</div>
+            <h3>Consultoría</h3>
+            <p class="department-count">10+</p>
+            <p>Consultores</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container text-center">
+        <h2 class="section-title">¿Quieres Unirte a Nuestro Equipo?</h2>
+        <a href="contact.html" class="btn">Ver Oportunidades</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="services.html">Desarrollo Web</a></li>
+            <li><a href="services.html">Consultoría Digital</a></li>
+            <li><a href="services.html">SEO & Marketing</a></li>
+            <li><a href="services.html">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

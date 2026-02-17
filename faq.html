@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preguntas Frecuentes - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .faq-hero {
+        background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+      }
+
+      .faq-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 4rem auto;
+      }
+
+      .faq-categories {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+      }
+
+      .category-btn {
+        padding: 0.7rem 1.5rem;
+        background: white;
+        color: #374151;
+        border: 2px solid #e5e7eb;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .category-btn:hover,
+      .category-btn.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+        transform: translateY(-3px);
+      }
+
+      .faq-section {
+        margin-bottom: 3rem;
+      }
+
+      .faq-section-title {
+        font-size: 2rem;
+        color: #1f2937;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid #2563eb;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .faq-question {
+        padding: 1.8rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        transition: background 0.3s ease;
+      }
+
+      .faq-question:hover {
+        background: #f9fafb;
+      }
+
+      .faq-question h3 {
+        color: #1f2937;
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      .faq-icon {
+        font-size: 1.5rem;
+        color: #2563eb;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
+        padding: 0 1.8rem;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 0 1.8rem 1.8rem;
+      }
+
+      .faq-answer p {
+        color: #6b7280;
+        line-height: 1.8;
+        margin: 0;
+      }
+
+      .help-banner {
+        background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .help-banner h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .help-banner p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .help-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 4rem 0;
+      }
+
+      .help-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .help-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .help-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .help-card h3 {
+        color: #1f2937;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .help-card p {
+        color: #6b7280;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .search-box {
+        max-width: 600px;
+        margin: 3rem auto;
+        position: relative;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 1.2rem 3.5rem 1.2rem 1.5rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 50px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .search-box input:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: #9ca3af;
+      }
+
+      @media (max-width: 768px) {
+        .faq-container {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="mobile-menu" id="mobile-menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="faq-hero">
+      <div class="container">
+        <h1>Preguntas Frecuentes</h1>
+        <p>
+          Encuentra respuestas a las preguntas más comunes sobre nuestros
+          servicios
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar en preguntas frecuentes..." />
+          <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="faq-categories">
+          <button class="category-btn active">Todas</button>
+          <button class="category-btn">General</button>
+          <button class="category-btn">Servicios</button>
+          <button class="category-btn">Precios</button>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-section">
+            <h2 class="faq-section-title">📋 Preguntas Generales</h2>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Qué es P&RConsulting ?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  P&RConsulting es una empresa especializada en soluciones web y
+                  transformación digital. Ofrecemos servicios de desarrollo web,
+                  diseño UX/UI, consultoría digital, marketing online y
+                  mantenimiento de sitios web. Con más de 15 años de
+                  experiencia, ayudamos a empresas de todos los tamaños a
+                  alcanzar sus objetivos digitales.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿En qué países operan?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Nuestra oficina principal está en Madrid, España, pero
+                  trabajamos con clientes de todo el mundo. Ofrecemos servicios
+                  remotos y podemos comunicarnos en varios idiomas. Hemos
+                  completado proyectos exitosos en más de 20 países en Europa,
+                  América y Asia.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Qué tamaño de proyectos manejan?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Trabajamos con proyectos de todos los tamaños, desde sitios
+                  web sencillos para pequeñas empresas hasta aplicaciones web
+                  complejas para grandes corporaciones. Nuestro equipo diverso y
+                  experimentado nos permite adaptarnos a las necesidades
+                  específicas de cada cliente.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-section">
+            <h2 class="faq-section-title">🛠️ Servicios y Proceso</h2>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Cuánto tiempo toma desarrollar un sitio web?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  El tiempo de desarrollo depende de la complejidad del
+                  proyecto. Un sitio web básico puede tomar de 2-4 semanas,
+                  mientras que un sitio más complejo con funcionalidades
+                  personalizadas puede tomar de 2-4 meses. Durante la fase de
+                  descubrimiento, proporcionamos un cronograma detallado basado
+                  en tus necesidades específicas.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>
+                  ¿Ofrecen servicios de mantenimiento después del lanzamiento?
+                </h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Sí, ofrecemos planes de mantenimiento mensuales que incluyen
+                  actualizaciones de seguridad, backups automáticos, monitoreo
+                  24/7, soporte técnico y optimización continua. También podemos
+                  ayudarte con actualizaciones de contenido y nuevas
+                  funcionalidades según sea necesario.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Qué tecnologías utilizan?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Trabajamos con las tecnologías más modernas y confiables del
+                  mercado, incluyendo React, Vue.js, Next.js, Node.js,
+                  WordPress, PHP, Python, y más. Seleccionamos la tecnología más
+                  adecuada para cada proyecto basándonos en los requisitos
+                  específicos, escalabilidad y objetivos a largo plazo.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Hacen diseño responsive para móviles?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Absolutamente. Todos nuestros diseños son completamente
+                  responsive y se adaptan perfectamente a cualquier dispositivo
+                  (móvil, tablet, desktop). Seguimos un enfoque mobile-first
+                  para asegurar que tu sitio web ofrezca una experiencia óptima
+                  en todos los tamaños de pantalla.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-section">
+            <h2 class="faq-section-title">💰 Precios y Pagos</h2>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Cómo funcionan sus precios?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Nuestros precios varían según el alcance y complejidad del
+                  proyecto. Ofrecemos cotizaciones personalizadas después de
+                  entender tus necesidades específicas. Algunos servicios tienen
+                  precios fijos (como mantenimiento mensual), mientras que otros
+                  se cotizan por proyecto. Siempre proporcionamos presupuestos
+                  detallados y transparentes.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Qué formas de pago aceptan?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Aceptamos transferencias bancarias, tarjetas de crédito/débito
+                  y PayPal. Para proyectos grandes, ofrecemos planes de pago en
+                  fases (generalmente un 40% al inicio, 30% en el punto medio y
+                  30% al finalizar). Los pagos mensuales de mantenimiento se
+                  pueden domiciliar automáticamente.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Ofrecen garantías?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Sí, todos nuestros proyectos incluyen una garantía de 30 días
+                  contra defectos y errores después del lanzamiento. Esto
+                  significa que corregiremos cualquier bug o problema sin costo
+                  adicional durante este período. Además, nuestros planes de
+                  mantenimiento incluyen cobertura continua.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-section">
+            <h2 class="faq-section-title">🤝 Colaboración y Soporte</h2>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>
+                  ¿Cómo es el proceso de comunicación durante el proyecto?
+                </h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Mantenemos comunicación constante y transparente. Asignamos un
+                  gerente de proyecto dedicado que será tu punto de contacto
+                  principal. Realizamos reuniones semanales de seguimiento,
+                  enviamos reportes de progreso y estás siempre bienvenido a
+                  contactarnos por email, teléfono o videollamada cuando lo
+                  necesites.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Puedo solicitar cambios durante el desarrollo?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Sí, somos flexibles y entendemos que los requisitos pueden
+                  evolucionar. Incluimos un número razonable de revisiones en
+                  nuestros proyectos. Los cambios importantes fuera del alcance
+                  original se gestionan mediante órdenes de cambio, y siempre te
+                  informamos del impacto en tiempo y costo antes de proceder.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div
+                class="faq-question"
+                onclick="this.parentElement.classList.toggle('active')"
+              >
+                <h3>¿Qué sucede si no estoy satisfecho con el resultado?</h3>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Tu satisfacción es nuestra prioridad. Trabajamos en
+                  iteraciones y obtenemos tu aprobación en cada fase importante.
+                  Si hay algo que no cumple tus expectativas, trabajaremos
+                  contigo para ajustarlo hasta que estés completamente
+                  satisfecho. Nuestro objetivo es construir relaciones a largo
+                  plazo basadas en resultados excepcionales.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="help-banner">
+          <h2>¿No Encontraste tu Respuesta?</h2>
+          <p>Estamos aquí para ayudarte con cualquier pregunta adicional</p>
+          <a
+            href="contact.html"
+            class="btn"
+            style="background: white; color: #2563eb"
+            >Contáctanos Ahora</a
+          >
+        </div>
+
+        <div class="help-cards">
+          <div class="help-card">
+            <div class="help-icon">💬</div>
+            <h3>Chat en Vivo</h3>
+            <p>Habla con nuestro equipo en tiempo real</p>
+            <a href="#" class="btn">Iniciar Chat</a>
+          </div>
+
+          <div class="help-card">
+            <div class="help-icon">📧</div>
+            <h3>Email</h3>
+            <p>Envíanos un mensaje y te responderemos pronto</p>
+            <a href="contact.html" class="btn">Enviar Email</a>
+          </div>
+
+          <div class="help-card">
+            <div class="help-icon">📞</div>
+            <h3>Teléfono</h3>
+            <p>Llámanos directamente para soporte inmediato</p>
+            <a href="tel:+34900123456" class="btn">Llamar Ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="privacy.html">Política de Privacidad</a></li>
+            <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>📧 info@P&R Consulting.com</li>
+            <li>📱 +34 900 123 456</li>
+            <li>📍 Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", function () {
+          this.parentElement.classList.toggle("active");
+        });
+      });
+    </script>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

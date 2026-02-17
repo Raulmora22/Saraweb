@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nosotros - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .about-hero {
+        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+      }
+
+      .about-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .mission-vision {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        margin: 4rem 0;
+      }
+
+      .mission-box,
+      .vision-box {
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mission-box {
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      }
+
+      .vision-box {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      }
+
+      .mission-box::before,
+      .vision-box::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          transparent 70%
+        );
+      }
+
+      .mission-box h2,
+      .vision-box h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #1f2937;
+        position: relative;
+        z-index: 1;
+      }
+
+      .mission-box p,
+      .vision-box p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #374151;
+        position: relative;
+        z-index: 1;
+      }
+
+      .values {
+        background: #f9fafb;
+        padding: 4rem 0;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .value-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .value-card:hover {
+        transform: translateY(-5px) scale(1.05);
+      }
+
+      .value-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .timeline {
+        position: relative;
+        padding: 2rem 0;
+        margin: 3rem 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, #2563eb, #f59e0b);
+      }
+
+      .timeline-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .timeline-content {
+        width: 45%;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: scale(1.05);
+      }
+
+      .timeline-year {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2563eb;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .mission-vision {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-item {
+          flex-direction: column !important;
+          align-items: flex-start;
+          padding-left: 50px;
+        }
+
+        .timeline-content {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="about-hero">
+      <div class="container">
+        <h1>Sobre P&RConsulting</h1>
+        <p>Innovamos, diseñamos y construimos el futuro digital</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="mission-vision">
+          <div class="mission-box">
+            <h2>Nuestra Misión</h2>
+            <p>
+              Empoderar a las empresas con soluciones tecnológicas innovadoras
+              que transformen su presencia digital y aceleren su crecimiento.
+              Nos comprometemos a entregar calidad excepcional, construir
+              relaciones duraderas y ser el socio estratégico que nuestros
+              clientes necesitan para triunfar en la era digital.
+            </p>
+          </div>
+          <div class="vision-box">
+            <h2>Nuestra Visión</h2>
+            <p>
+              Ser la consultora web líder en innovación y excelencia
+              tecnológica, reconocida por transformar ideas en soluciones
+              digitales excepcionales. Aspiramos a establecer nuevos estándares
+              en la industria y ser la primera opción para empresas que buscan
+              diferenciarse en el mercado digital global.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="container">
+        <h2 class="section-title">Nuestros Valores</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🌟</div>
+            <h3>Excelencia</h3>
+            <p>
+              Buscamos la perfección en cada detalle y superamos expectativas
+              constantemente.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Integridad</h3>
+            <p>
+              Actuamos con honestidad y transparencia en todas nuestras
+              relaciones.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🚀</div>
+            <h3>Innovación</h3>
+            <p>
+              Adoptamos nuevas tecnologías y métodos para mantenernos a la
+              vanguardia.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💪</div>
+            <h3>Compromiso</h3>
+            <p>
+              Nos dedicamos completamente al éxito de cada proyecto y cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2011</div>
+              <h3>Los Inicios</h3>
+              <p>
+                Fundación de P&RConsulting con un equipo de 3 desarrolladores
+                apasionados.
+              </p>
+            </div>
+            <div style="width: 45%"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <h3>Expansión Nacional</h3>
+              <p>
+                Apertura de oficinas en Barcelona y Valencia, alcanzando 50
+                clientes.
+              </p>
+            </div>
+            <div style="width: 45%"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2018</div>
+              <h3>Reconocimiento Internacional</h3>
+              <p>
+                Premio a la Mejor Consultora Web Europea y expansión a mercados
+                internacionales.
+              </p>
+            </div>
+            <div style="width: 45%"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <h3>Líderes del Sector</h3>
+              <p>
+                Más de 250 clientes satisfechos y equipo de 50+ profesionales.
+              </p>
+            </div>
+            <div style="width: 45%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="privacy.html">Política de Privacidad</a></li>
+            <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

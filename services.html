@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestros Servicios - P&RConsulting</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      .services-hero {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        padding: 6rem 0 4rem;
+        margin-top: 70px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .services-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      }
+
+      .services-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(37, 99, 235, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .service-card:hover::before {
+        left: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-header {
+        background: linear-gradient(135deg, #2563eb, #1e40af);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .service-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      .service-header h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .service-body {
+        padding: 2rem;
+      }
+
+      .service-body ul {
+        list-style: none;
+        margin: 1.5rem 0;
+      }
+
+      .service-body ul li {
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .service-body ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #2563eb;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .service-price {
+        text-align: center;
+        font-size: 2rem;
+        color: #2563eb;
+        font-weight: bold;
+        margin: 1.5rem 0;
+      }
+
+      .process-section {
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        padding: 4rem 0;
+        margin: 4rem 0;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .process-step {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #2563eb, #f59e0b);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 0 auto 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="logo">P&RConsulting </a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="about.html">Nosotros</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="portfolio.html">Portafolio</a></li>
+          <li><a href="team.html">Equipo</a></li>
+          <li><a href="testimonials.html">Testimonios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="services-hero">
+      <div class="container">
+        <h1>Nuestros Servicios</h1>
+        <p>Soluciones completas para todas tus necesidades digitales</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">¿Qué Ofrecemos?</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">💻</div>
+              <h3>Desarrollo Web</h3>
+            </div>
+            <div class="service-body">
+              <p>
+                Creamos sitios web modernos, responsivos y optimizados para SEO.
+              </p>
+              <ul>
+                <li>Sitios web corporativos</li>
+                <li>Tiendas online (E-commerce)</li>
+                <li>Aplicaciones web personalizadas</li>
+                <li>Diseño responsive</li>
+                <li>Optimización de rendimiento</li>
+              </ul>
+              <div class="service-price">Desde 2.500€</div>
+              <a
+                href="contact.html"
+                class="btn"
+                style="width: 100%; text-align: center"
+                >Solicitar Cotización</a
+              >
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🎨</div>
+              <h3>Diseño UX/UI</h3>
+            </div>
+            <div class="service-body">
+              <p>Diseñamos experiencias digitales intuitivas y atractivas.</p>
+              <ul>
+                <li>Investigación de usuarios</li>
+                <li>Wireframes y prototipos</li>
+                <li>Diseño de interfaces</li>
+                <li>Testing de usabilidad</li>
+                <li>Guías de estilo</li>
+              </ul>
+              <div class="service-price">Desde 1.800€</div>
+              <a
+                href="contact.html"
+                class="btn"
+                style="width: 100%; text-align: center"
+                >Solicitar Cotización</a
+              >
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">📱</div>
+              <h3>Desarrollo Móvil</h3>
+            </div>
+            <div class="service-body">
+              <p>Aplicaciones móviles nativas e híbridas de alta calidad.</p>
+              <ul>
+                <li>Apps iOS y Android</li>
+                <li>Progressive Web Apps</li>
+                <li>Apps multiplataforma</li>
+                <li>Integración de APIs</li>
+                <li>Publicación en stores</li>
+              </ul>
+              <div class="service-price">Desde 5.000€</div>
+              <a
+                href="contact.html"
+                class="btn"
+                style="width: 100%; text-align: center"
+                >Solicitar Cotización</a
+              >
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🚀</div>
+              <h3>Consultoría Digital</h3>
+            </div>
+            <div class="service-body">
+              <p>Asesoramiento estratégico para tu transformación digital.</p>
+              <ul>
+                <li>Auditoría tecnológica</li>
+                <li>Estrategia digital</li>
+                <li>Arquitectura de sistemas</li>
+                <li>Selección de tecnologías</li>
+                <li>Roadmap de proyectos</li>
+              </ul>
+              <div class="service-price">Desde 1.200€</div>
+              <a
+                href="contact.html"
+                class="btn"
+                style="width: 100%; text-align: center"
+                >Solicitar Cotización</a
+              >
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">📈</div>
+              <h3>SEO & Marketing</h3>
+            </div>
+            <div class="service-body">
+              <p>Aumenta tu visibilidad online y atrae más clientes.</p>
+              <ul>
+                <li>Optimización SEO On-page</li>
+                <li>Link building</li>
+                <li>Marketing de contenidos</li>
+                <li>Google Ads & Social Media</li>
+                <li>Analítica y reporting</li>
+              </ul>
+              <div class="service-price">Desde 800€/mes</div>
+              <a
+                href="contact.html"
+                class="btn"
+                style="width: 100%; text-align: center"
+                >Solicitar Cotización</a
+              >
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🔧</div>
+              <h3>Mantenimiento Web</h3>
+            </div>
+            <div class="service-body">
+              <p>Mantén tu sitio web seguro, actualizado y funcionando.</p>
+              <ul>
+                <li>Actualizaciones de seguridad</li>
+                <li>Backups automáticos</li>
+                <li>Monitoreo 24/7</li>
+                <li>Soporte técnico</li>
+                <li>Optimización continua</li>
+              </ul>
+              <div class="service-price">Desde 300€/mes</div>
+              <a
+                href="contact.html"
+                class="btn"
+                style="width: 100%; text-align: center"
+                >Solicitar Cotización</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="container">
+        <h2 class="section-title">Nuestro Proceso de Trabajo</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Descubrimiento</h3>
+            <p>
+              Analizamos tus necesidades y objetivos para crear la estrategia
+              perfecta.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Planificación</h3>
+            <p>
+              Diseñamos el roadmap del proyecto con plazos y entregables claros.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Desarrollo</h3>
+            <p>
+              Construimos tu solución con las mejores tecnologías y prácticas.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Lanzamiento</h3>
+            <p>Desplegamos tu proyecto y te acompañamos en cada paso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>P&RConsulting</h3>
+          <p>
+            Soluciones web profesionales para empresas que buscan innovar y
+            crecer en el mundo digital.
+          </p>
+        </div>
+        <div>
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="services.html">Desarrollo Web</a></li>
+            <li><a href="services.html">Consultoría Digital</a></li>
+            <li><a href="services.html">SEO & Marketing</a></li>
+            <li><a href="services.html">Mantenimiento</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li>info@P&R Consulting.com</li>
+            <li>+34 900 123 456</li>
+            <li>Madrid, España</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 P&RConsulting . Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu.addEventListener("click", function () {
+        mobileMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
