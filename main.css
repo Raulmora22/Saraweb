@@ -23,105 +23,6 @@ body {
   background-color: var(--white);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
 nav {
   background-color: var(--white);
@@ -371,7 +272,7 @@ footer .copyright {
   }
 }
 
-/* Media Query para resolución de PC - máximo 1300px */
+
 @media (max-width: 1300px) {
   .container {
     max-width: 1100px;
@@ -395,14 +296,14 @@ footer .copyright {
     gap: 1.5rem;
   }
 
-  /* Ajustes para grids en pantallas medianas */
+
   .features,
   .stats-grid {
     gap: 1.5rem;
   }
 }
 
-/* Media Query para móviles - máximo 600px */
+
 @media (max-width: 600px) {
   body {
     font-size: 14px;
@@ -470,10 +371,10 @@ footer .copyright {
     font-size: 0.9rem;
   }
 
-  /* Mejoras para formularios en móvil */
+
   input,
   textarea,
   select {
-    font-size: 16px; /* Previene zoom en iOS */
+    font-size: 16px; 
   }
 }
